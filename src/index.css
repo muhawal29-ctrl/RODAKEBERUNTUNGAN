@@ -1,0 +1,75 @@
+@import "tailwindcss";
+
+/* ==========================================================================
+   PENGATURAN WARNA TEMA (MUDAH DIEDIT GURU)
+   Ubah nilai warna di bawah ini untuk menyesuaikan tampilan aplikasi.
+   ========================================================================== */
+:root {
+  --warna-hijau-utama: #1B7F4B;
+  --warna-hijau-cerah: #2E9E63;
+  --warna-hijau-gelap: #125834;
+  --warna-latar: #FFF8E7;
+  --warna-kartu: #FFFFFF;
+  --warna-emas: #F2B705;
+  --warna-emas-lembut: #FEF3C7;
+  --warna-teks: #18291F;
+  --warna-teks-redup: #4B5E52;
+  --warna-garis: #D9E6DD;
+}
+
+@layer base {
+  html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--warna-latar);
+    color: var(--warna-teks);
+    font-family: 'Open Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-size: 1rem;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, h4, .font-judul {
+    font-family: 'Poppins', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    text-wrap: balance;
+  }
+}
+
+.font-arab {
+  font-family: 'Amiri', 'Scheherazade New', 'Traditional Arabic', serif;
+  line-height: 2.1;
+}
+
+.angka-tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Animasi konfeti ringan hanya menggunakan transform dan opacity */
+@keyframes jatuh-konfeti {
+  0% {
+    transform: translateY(-12px) rotate(0deg) scale(0.9);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(150px) rotate(320deg) scale(1);
+    opacity: 0;
+  }
+}
+
+.partikel-konfeti {
+  animation: jatuh-konfeti 1.15s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .partikel-konfeti {
+    animation: none;
+    opacity: 0;
+  }
+  * {
+    scroll-behavior: auto !important;
+  }
+}
+
